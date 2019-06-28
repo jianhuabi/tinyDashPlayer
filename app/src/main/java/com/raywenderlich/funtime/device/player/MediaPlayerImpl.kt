@@ -32,10 +32,19 @@ import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
 import com.google.android.exoplayer2.source.ExtractorMediaSource
+import com.google.android.exoplayer2.source.dash.DashChunkSource
+import com.google.android.exoplayer2.source.dash.DashMediaSource
+import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.raywenderlich.funtime.R
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
+import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
+
+
+
+
 
 class MediaPlayerImpl : MediaPlayer {
 
@@ -52,9 +61,13 @@ class MediaPlayerImpl : MediaPlayer {
 
     val userAgent = Util.getUserAgent(context, context.getString(R.string.app_name))
 
-    val mediaSource = ExtractorMediaSource.Factory(DefaultDataSourceFactory(context, userAgent))
+    /*val mediaSource = ExtractorMediaSource.Factory(DefaultDataSourceFactory(context, userAgent))
         .setExtractorsFactory(DefaultExtractorsFactory())
-        .createMediaSource(Uri.parse(url))
+        .createMediaSource(Uri.parse(url))*/
+
+    val mediaSource = DashMediaSource.Factory(DefaultDashChunkSource.Factory(
+            DefaultHttpDataSourceFactory(userAgent, DefaultBandwidthMeter())), DefaultHttpDataSourceFactory(userAgent))
+            .createMediaSource(Uri.parse(url))
 
     exoPlayer.prepare(mediaSource)
 

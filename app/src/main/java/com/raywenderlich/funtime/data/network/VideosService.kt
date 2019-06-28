@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object VideosService {
 
-  private const val CLOUDINARY_BASE_URL = "https://res.cloudinary.com/"
+  private const val CLOUDINARY_BASE_URL = "https://istio-bin.s3-ap-southeast-1.amazonaws.com/"
 
   fun fetchVideos() = createCloudinaryVideoService().fetchVideos()
 

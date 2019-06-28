@@ -106,5 +106,5 @@ class MainActivity : AppCompatActivity(), MainContract.View {
   }
 
   private fun createVideoUrl(video: ApiVideo) =
-      "https://res.cloudinary.com/demo/video/${video.type}/v${video.version}/${video.publicId}.${video.format}"
+      "${video.source_uri}"
 }

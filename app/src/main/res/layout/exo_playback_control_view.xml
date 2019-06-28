@@ -16,19 +16,19 @@
 
     <ImageButton
       android:id="@id/exo_rew"
-      style="@style/ExoMediaButton.Rewind" />
+      style="@style/ExoMediaButton.Rewind" android:contentDescription="TODO"  />
 
     <ImageButton
       android:id="@id/exo_play"
-      style="@style/CustomExoMediaButton.Play" />
+      style="@style/CustomExoMediaButton.Play" android:contentDescription="TODO"  />
 
     <ImageButton
       android:id="@id/exo_pause"
-      style="@style/CustomExoMediaButton.Pause" />
+      style="@style/CustomExoMediaButton.Pause" android:contentDescription="TODO"  />
 
     <ImageButton
       android:id="@id/exo_ffwd"
-      style="@style/ExoMediaButton.FastForward" />
+      style="@style/ExoMediaButton.FastForward" android:contentDescription="TODO"  />
   </LinearLayout>
 
   <LinearLayout

@@ -33,4 +33,5 @@ data class ApiVideo(@SerializedName("public_id") val publicId: String,
                     val width: Int,
                     val height: Int,
                     val type: String,
+                    val source_uri: String,
                     @SerializedName("created_at") val createdAt: String)
